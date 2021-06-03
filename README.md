@@ -1,5 +1,5 @@
 # GPS-Tracking-System
-    In this project we will develop a GPS tracking system using TM4C123G LaunchPad, the  system should store the moved trajectory after power-on until a destination point is         reached and calculate the taken distance.
+In this project we will develop a GPS tracking system using TM4C123G LaunchPad, the  system should store the moved trajectory after power-on until a destination point is         reached and calculate the taken distance.
 
 ### There are 4 possible options for the definition of the destination point:
     1. Once the moved distance exceeds 100m, stop adding new points to the 
