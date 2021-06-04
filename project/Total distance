@@ -1,1 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define PI 3.141592654
+double Distance(double Lat1, double Lon1, double Lat2, double Lon2)
+{
 
+	long double R = 6371000;
+	double deltalat = (Lat2 - Lat1 )* (PI / 180);
+	double deltalong = (Lon2 - Lon1) * (PI / 180);
+
+	long double ans = pow(sin(deltalat / 2), 2) + cos(Lat1) * cos(Lat2) * pow(sin(deltalong / 2), 2);
+
+	ans = 2 * atan2(sqrt(ans),sqrt(1-ans));
+
+	return ans * R;
+	
+}
+int main()
+{
+	double Lat1 = 29.98613981967692;
+	double Lon1 = 31.262914841159485;
+	double Lat2 = 29.986592839806814;
+	double Lon2 = 31.263893847403416;
+	printf("%lf", Distance(Lat1, Lon1, Lat2, Lon2));
+}
