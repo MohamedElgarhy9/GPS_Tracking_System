@@ -2,16 +2,19 @@
 #include <stdint.h>
 void SystemInit(){}
 
-
-
-
+void Delay(int x){
+    int i;
+    int j;
+    for(;i<x;i++){
+        for(;j<x;j++){}
+        }
+    }
 
 void LCD_Command(char com){
     GPIO_PORTA_DATA_R=0;
     GPIO_PORTB_DATA_R=com;
     GPIO_PORTA_DATA_R |=0x80;
-    int x;
-    x=x+100;
+    Delay(500);
     GPIO_PORTA_DATA_R=0;
 
 
@@ -20,8 +23,7 @@ void LCD_DATA(char data){
     GPIO_PORTA_DATA_R=0x20;
     GPIO_PORTB_DATA_R=data;
     GPIO_PORTA_DATA_R |=0x80;
-    int x;
-    x=x+100;
+    Delay(500);
     GPIO_PORTA_DATA_R=0;
 
 
@@ -52,7 +54,7 @@ void Init(void){
 int main(){
 	Init();
 		while(1){
-		LCD_DATA(10);
+		LCD_DATA('A');
 
 		}
 }
