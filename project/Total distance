@@ -18,9 +18,8 @@ double Distance(double Lat1, double Lon1, double Lat2, double Lon2)
 }
 int main()
 {
-	
-	double Lon1 = 31.262914841159485;
 	double Lat1 = 29.98613981967692;
+	double Lon1 = 31.262914841159485;
 	double Lat2 = 29.986592839806814;
 	double Lon2 = 31.263893847403416;
 	printf("%lf", Distance(Lat1, Lon1, Lat2, Lon2));
