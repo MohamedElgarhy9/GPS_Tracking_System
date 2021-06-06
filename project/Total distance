@@ -29,7 +29,7 @@ int main()
 	scanf("%lf", &Lon1);  //this coordinates whill be taken from GPS we now assume it
 	scanf("%lf", &Lat2);
 	scanf("%lf", &Lon2);
-	float distance = Distance(Lat1, Lon1, Lat2, Lon2);
+	double distance = Distance(Lat1, Lon1, Lat2, Lon2);
 	Delay(100);
 	while (distance <= 100) {
 		Lat1 = Lat2;
