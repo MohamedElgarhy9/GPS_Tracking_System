@@ -1,15 +1,13 @@
-#include "tm4c123gh6pm.h"
+#include "C:/Keil/EE319Kware/inc/tm4c123gh6pm.h"
 #include <stdint.h>
 void SystemInit(){}
-
 void Delay(int x){
     int i;
     int j;
-    for(;i<x;i++){
-        for(;j<x;j++){}
+    for(i=0;i<x;i++){
+        for(j=0;j<x;j++){}
         }
     }
-
 void LCD_Command(char com){
     GPIO_PORTA_DATA_R=0;
     GPIO_PORTB_DATA_R=com;
@@ -25,14 +23,12 @@ void LCD_DATA(char data){
     GPIO_PORTA_DATA_R |=0x80;
     Delay(500);
     GPIO_PORTA_DATA_R=0;
+        }
 
 
-    }
-
-
-void Init(void){       
-	SYSCTL_RCGCGPIO_R |= 0x03;
-        while ((SYSCTL_PRGPIO_R&0x03) == 0){};
+void Init(void){
+        SYSCTL_RCGCGPIO_R |= 0x03;
+                while ((SYSCTL_PRGPIO_R&0x03) == 0){};
         GPIO_PORTA_LOCK_R = 0x4C4F434B;
         GPIO_PORTB_LOCK_R = 0x4C4F434B;
         GPIO_PORTB_CR_R |= 0xFF;
@@ -51,15 +47,14 @@ void Init(void){
         LCD_Command(0x30);
         LCD_Command(0x38);
 
-    }
-
-
-
+}
 
 int main(){
-	Init();
-		while(1){
-		LCD_DATA('A');
+        Init();
+        while(1){
 
-		}
+            LCD_DATA('1');
+Delay(500);
+ LCD_DATA('0');
+        }
 }
