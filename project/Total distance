@@ -1,20 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
-#define PI 3.141592654
+#define PI 3.1415926536
 double Distance(double Lat1, double Lon1, double Lat2, double Lon2)
 {
+    long double R = 6371000;
+    double deltalat = (Lat2 - Lat1 )* (PI / 180);
+    double deltalong = (Lon2 - Lon1) * (PI / 180);
 
-	long double R = 6371000;
-	double deltalat = (Lat2 - Lat1 )* (PI / 180);
-	double deltalong = (Lon2 - Lon1) * (PI / 180);
+    long double ans = pow(sin(deltalat / 2), 2) + cos(Lat1) * cos(Lat2) * pow(sin(deltalong / 2), 2);
 
-	long double ans = pow(sin(deltalat / 2), 2) + cos(Lat1) * cos(Lat2) * pow(sin(deltalong / 2), 2);
+    ans = 2 * atan2(sqrt(ans),sqrt(1-ans));
 
-	ans = 2 * atan2(sqrt(ans),sqrt(1-ans));
+    return ans * R;
 
-	return ans * R;
-	}
+}
 void Delay(int x) {
     int i;
     int j;
@@ -24,19 +23,19 @@ void Delay(int x) {
 }
 int main()
 {
-	double Lat1, Lon1, Lat2, Lon2;  
-	scanf("%lf", &Lat1 );
-	scanf("%lf", &Lon1);  //this coordinates whill be taken from GPS we now assume it
-	scanf("%lf", &Lat2);
-	scanf("%lf", &Lon2);
-	double distance = Distance(Lat1, Lon1, Lat2, Lon2);
-	Delay(100);
-	while (distance <= 100) {
-		Lat1 = Lat2;
-		Lon1 = Lon2;
-		scanf("%lf", &Lat2);
-		scanf("%lf", &Lon2);
-		distance += Distance(Lat1, Lon1, Lat2, Lon2);
-	}    //we will stop calculating distance along the path when it exceeds 100 meters
-	printf("%lf", Distance(Lat1, Lon1, Lat2, Lon2));
+    double Lat1, Lon1, Lat2, Lon2;
+    scanf("%lf", &Lat1 );
+    scanf("%lf", &Lon1);  //this coordinates will be taken from GPS we now assume it
+    scanf("%lf", &Lat2);
+    scanf("%lf", &Lon2);
+    double distance = Distance(Lat1, Lon1, Lat2, Lon2);
+    Delay(100);
+    while (distance <= 100) {
+        Lat1 = Lat2;
+        Lon1 = Lon2;
+        scanf("%lf", &Lat2);
+        scanf("%lf", &Lon2);
+        distance += Distance(Lat1, Lon1, Lat2, Lon2);
+    }    //we will stop calculating distance along the path when it exceeds 100 meters
+    printf("%lf", distance);
 }
