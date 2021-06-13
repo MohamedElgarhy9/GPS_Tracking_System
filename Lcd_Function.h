@@ -4,8 +4,8 @@
 #include "delay.h"
 #include "stdint.h"
 
-void LCD_Command(char com);
-void LCD_DATA(char data);
-void Init(void);
+void Lcd_Command(uint8_t cmd);
+void Lcd_DATA(uint8_t D);
+void LCD_INIT(void);
 
 #endif

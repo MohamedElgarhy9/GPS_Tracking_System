@@ -3,11 +3,15 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-E:\Mohamed\Embedded\Labs\Projects\UART\UART.uvproj
-Project File Date:  06/12/2021
+D:\EDUCATION\Communication 2nd Term\Embedded Systems\Project\Final modification\A-Final_Project_Modification\Final_project\UART.uvproj
+Project File Date:  06/13/2021
 
 <h2>Output:</h2>
 Build target 'Target 1'
+compiling UART.c...
+UART_header_file.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif // __UART_H__
+UART.c: 1 warning, 0 errors
 compiling test.c...
 UART_header_file.h(21): warning:  #1-D: last line of file ends without a newline
   #endif // __UART_H__
@@ -27,49 +31,31 @@ Lcd_route.h(10): warning:  #1-D: last line of file ends without a newline
   #endif
 constants_phase1.h(23): warning:  #1-D: last line of file ends without a newline
   #endif
-test.c(153): warning:  #223-D: function "LCD_INIT" declared implicitly
-                LCD_INIT();
-test.c(156): warning:  #223-D: function "Lcd_Command" declared implicitly
-                Lcd_Command(DisplayOn);  /* Enable Display and cursor blinking */
-test.c(166): warning:  #128-D: loop is not reachable
+test.c(139): warning:  #128-D: loop is not reachable
                 for( j=0;j<200;j+=2){
-test.c(174): warning:  #1-D: last line of file ends without a newline
+test.c(146): warning:  #1-D: last line of file ends without a newline
         }
-test.c(148): warning:  #177-D: variable "word_count" was declared but never referenced
-                uint32_t word_count ;
-test.c(149): warning:  #177-D: variable "i" was declared but never referenced
+test.c(121): warning:  #177-D: variable "word_count" was declared but never referenced
+          uint32_t word_count ;
+test.c(122): warning:  #177-D: variable "i" was declared but never referenced
           int i=0,j=0;
-test.c: 15 warnings, 0 errors
-linking...
-Program Size: Code=9228 RO-data=1108 RW-data=8 ZI-data=2208  
-".\UART.axf" - 0 Error(s), 15 Warning(s).
-</pre>
-</body>
-</html>
-uart.o).
-.\UART.axf: Error: L6200E: Symbol Delay multiply defined (by delay.o and lcd_function.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 2 error messages.
-".\UART.axf" - 2 Error(s), 16 Warning(s).
-Target not created
-tion.c: 2 warnings, 0 errors
-compiling delay.c...
-delay.c(9): warning:  #1-D: last line of file ends without a newline
-      }
-delay.c: 1 warning, 0 errors
-linking...
-.\UART.axf: Error: L6200E: Symbol SystemInit multiply defined (by test.o and uart.o).
-.\UART.axf: Error: L6200E: Symbol Delay multiply defined (by delay.o and lcd_function.o).
-Not enough information to list image symbols.
-Not enough information to list the image map.
-Finished: 2 information, 0 warning and 2 error messages.
-".\UART.axf" - 2 Error(s), 21 Warning(s).
-Target not created
-c...
-delay.c(10): warning:  #1-D: last line of file ends without a newline
-      }
-delay.c: 1 warning, 0 errors
+test.c: 13 warnings, 0 errors
+compiling Led.c...
+Led.h(6): warning:  #1295-D: Deprecated declaration LEDSinit - give arg types
+  void LEDSinit();
+Led.h(7): warning:  #1295-D: Deprecated declaration DETECT_DISTANCE - give arg types
+  void DETECT_DISTANCE();
+Led.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+Led.c(27): warning:  #1-D: last line of file ends without a newline
+  }
+Led.c: 4 warnings, 0 errors
+compiling Lcd_Function.c...
+delay.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+Lcd_Function.h(11): warning:  #1-D: last line of file ends without a newline
+  #endif
+Lcd_Function.c: 2 warnings, 0 errors
 compiling Lcd_route.c...
 delay.h(8): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -77,10 +63,12 @@ Lcd_Function.h(11): warning:  #1-D: last line of file ends without a newline
   #endif
 lcd_route.h(10): warning:  #1-D: last line of file ends without a newline
   #endif
-Lcd_route.c(14): warning:  #223-D: function "Lcd_DATA" declared implicitly
-                Lcd_DATA(hundreds+48);
 Lcd_route.c(19): warning:  #1-D: last line of file ends without a newline
   }
-Lcd_route.c: 5 warnings, 0 errors
-".\UART.axf" - 1 Error(s), 29 Warning(s).
-Target not created
+Lcd_route.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=9012 RO-data=1108 RW-data=8 ZI-data=2208  
+".\UART.axf" - 0 Error(s), 24 Warning(s).
+</pre>
+</body>
+</html>

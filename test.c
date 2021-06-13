@@ -12,9 +12,6 @@
 #include "Lcd_route.h"
 #include "constants_phase1.h"
 #define  PI  3.141592654
-#define RED 0x02
-#define BLUE 0x04
-#define GREEN 0x08
 void SystemInit()
 {
 	CPAC |= 0X00F00000;
@@ -23,27 +20,8 @@ void SystemInit()
 float coords_obtained[200][2];
 uint16_t indx1=0;
 
-//read the char enterd from the pc keyboard through uart0
-char read_char()
-{
-	char c;
-	c = UART0_Read();
-	return c;
-}
-// print character by character
-void print_char(uint8_t c)
-{
-	UART0_Write(c);
-}
-// print on serial window
-void print_string(char *string)
-{
-	while(*string)
-		{
-			print_char(*(string++));
-		}
-}
-//parse the coords
+
+//parse the coordinates.
 void read_coords()
 {
 	char all_data[90],parsed_values[12][50];//we have 12 values for our data 
@@ -56,8 +34,8 @@ void read_coords()
 	uint8_t indx=0;
 	//while((UART7_FR_R & 0x10)!=0);
 	a = UART5_Read();//(UART7_DR_R&0xFF);
-	//I will use $GPRMC – Essential GPS pvt (position, velocity, time) data
-	//here we will check for $GPRMC, and get the values after it
+	//We will use $GPRMC – Essential GPS pvt (position, velocity, time) data
+	//here we are going to check for $GPRMC, and extract the values after then.
 	if(a == '$')
 	{
 		//while((UART7_FR_R & 0x10)!=0);
@@ -127,10 +105,7 @@ void read_coords()
 									coords_obtained[indx1][1] = parsed_longt;
 									indx1++;
 								}
-								/*else
-								{
-									printf("GPS still reading");
-								}*/
+								
 							}
 						}
 					}
@@ -143,11 +118,11 @@ void read_coords()
 int main(){
 		long double Moved_dist;
 		char out;
-		uint32_t word_count ;
+	  uint32_t word_count ;
 	  int i=0,j=0;
 		LEDSinit();
 		UART5_Init();//for GPS 
-		UART0_Init();//for PC
+		
 		LCD_INIT();
 		Lcd_Command(Function_set_8bit); /* Select 8-bit Mode of LCD */
 		Delay(10);
@@ -157,7 +132,7 @@ int main(){
 		{
 			//read_coords();
 			out = UART5_Read();
-			print_char(out);
+			Lcd_DATA(out);
 	
 		}
 

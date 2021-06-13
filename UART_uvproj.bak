@@ -420,6 +420,36 @@
               <FileType>1</FileType>
               <FilePath>.\UART.c</FilePath>
             </File>
+            <File>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\test.c</FilePath>
+            </File>
+            <File>
+              <FileName>Led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Led.c</FilePath>
+            </File>
+            <File>
+              <FileName>Distance_Gps.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Distance_Gps.c</FilePath>
+            </File>
+            <File>
+              <FileName>Lcd_Function.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lcd_Function.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>Lcd_route.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lcd_route.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
